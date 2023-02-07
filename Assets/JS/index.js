@@ -19,7 +19,7 @@ if(localStorage.getItem('allSites') === null){
 }
 else{
   bookmarkContainer=JSON.parse(localStorage.getItem('allSites'))
-  console.log(bookmarkContainer);
+  // console.log(bookmarkContainer);
   display();
 }
 
@@ -55,15 +55,7 @@ function deleteItem(index) {
 
 function addItem() {
   //alert("add Item Clicked");
-  /*var time = new Date();
-
-  var site = {
-    sId: objectIndex++,
-    sName: sName.value,
-    sURL: sURL.value,
-    sTime: time,
-  };*/
-  /********************************************** */
+  
   if (validateSiteName() && validateSiteURL()) {
     document.getElementById("wrongURL").classList.replace("d-block", "d-none");
     document.getElementById("sUrl").classList.remove("box");
@@ -92,8 +84,11 @@ function addItem() {
 
     display();
     reset();
-  } else {
-    // console.log('laaaaaaaaaaa2');
+  } 
+  
+  else {
+
+    //unvalid sName && sURL
     Swal.fire({
       icon: "error",
       title: "Oops...",
@@ -106,26 +101,6 @@ function addItem() {
     dnsCondition.classList.replace("d-none", "d-block");
   }
 
-  // if(validateSiteURL()){
-  //   console.log('URL tmam')
-  // }
-
-  // else {
-  //   console.log('URL Mshmom')
-  // }
-  /********************************************** */
-  /*bookmarkContainer.push(site);
-
-  Swal.fire({
-    position: "center",
-    icon: "success",
-    title: "Your work has been saved",
-    showConfirmButton: false,
-    timer: 1500,
-  });
-
-  display();
-  reset();*/
 }
 
 function updateItem() {
@@ -165,7 +140,11 @@ function updateItem() {
 
     addBtn.classList.remove("d-none");
     updateBtn.classList.add("d-none");
-  } else {
+
+
+  } 
+  
+  else {
     Swal.fire({
       icon: "error",
       title: "Oops...",
@@ -178,44 +157,14 @@ function updateItem() {
     dnsCondition.classList.replace("d-none", "d-block");
   }
 
-  // var newTime = new Date();
-
-  // var newData = {
-  //   sName: sName.value,
-  //   sURL: sURL.value,
-  //   sTime: newTime,
-  // };
-
-  // console.log(newData)
-
-  //Add The new item and delete the old one @ the same place
-  //bookmarkContainer.splice(globalUpdatedIndex, 1, newData);
-
-  /*Swal.fire({
-    position: "center",
-    icon: "success",
-    title: "Your work has been saved",
-    showConfirmButton: false,
-    timer: 1500,
-  });
-
-  //call display
-  display();
-  reset();
-
-  addBtn.classList.remove("d-none");
-  updateBtn.classList.add("d-none");*/
 }
 
 function getUpdate(index) {
   sName.value = bookmarkContainer[index].sName;
   sURL.value = bookmarkContainer[index].sURL;
   globalUpdatedIndex = index;
-  // globalUpdatedIndex = bookmarkContainer[index].sId;
   // sName.select();
   sURL.select();
-
-  //console.log(bookmarkContainer[index].sId)
 
   addBtn.classList.add("d-none");
   updateBtn.classList.remove("d-none");
@@ -223,11 +172,6 @@ function getUpdate(index) {
 
 function visitURL(index) {
   // alert("visit Item Clicked");
-  //document.getElementById("visitBtn").setAttribute("href", `"${bookmarkContainer[index].sURL}"`);
-  //document.getElementById("visitBtn").setAttribute("href", location.replace(`${bookmarkContainer[index].sURL}`));
-  // location.replace(`${bookmarkContainer[index].sURL}`);
-  // location.open(`${bookmarkContainer[index].sURL}`,'_blank')
-  // visitBtn.setAttribute("href", `"${bookmarkContainer[index].sURL}"`);
   var a = document.createElement("a");
   a.target = "_blank";
   a.href = `${bookmarkContainer[index].sURL}`;
@@ -263,15 +207,6 @@ function reset() {
   sURL.value = "";
 }
 
-/*function showURL(index) {
-  alert("show Item was Clicked");
-document.getElementById('showBtn').innerHTML=bookmarkContainer[index].sURL;
-// document.getElementById('showBtn').onclick=function() { removeClick( );}
-document.getElementById('showBtn').classList.replace('toggle__visible','remove__cursor')
-
-//<td ><button onclick="showURL(${i})" class='toggle__visible' id="showBtn">Click To show</button></td>
-//<td>${bookmarkContainer[i].sURL}</td>
-}*/
 
 function validateSiteName() {
   var siteNameRegex = /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-\_]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$/;
@@ -301,7 +236,8 @@ function convertDateFormat(dateString) {
    dateMs= (date.getMinutes() < 10 ) ? ("0" + date.getMinutes()) : (date.getMinutes());
    dateS= (date.getSeconds() < 10 ) ? ("0" + date.getSeconds()) : (date.getSeconds());
 
-   return String(dateD + '/' + dateM + '/' + date.getFullYear()+ " " + dateH + ":" + dateMs + ":" + dateS)
+   return String(dateD + '/' + dateM + '/' + date.getFullYear() + " " + dateH + ":" + dateMs + ":" + dateS);
+   
   // return String( date.getDate() < 10 ? "0" + date.getDate() : date.getDate() + '/' 
   // + date.getMonth() + 1 < 10 ? "0" + date.getMonth() + 1 : date.getMonth() + 1 + '/'
   // + date.getFullYear() + " "
@@ -310,30 +246,6 @@ function convertDateFormat(dateString) {
   // + date.getSeconds() < 10 ? "0" + date.getSeconds(): date.getSeconds() 
   // )
 
- // return String(dateD + '/' + dateM )
 }
 
 
-/**
- <td>${
-                (bookmarkContainer[i].sTime.getDate() < 10)
-                  ? ("0" + bookmarkContainer[i].sTime.getDate())
-                  : (bookmarkContainer[i].sTime.getDate())
-              }/${
-        bookmarkContainer[i].sTime.getMonth() + 1 < 10
-          ? "0" + (bookmarkContainer[i].sTime.getMonth() + 1)
-          : bookmarkContainer[i].sTime.getMonth() + 1
-      }/${bookmarkContainer[i].sTime.getFullYear()}&nbsp;${
-        bookmarkContainer[i].sTime.getHours() < 10
-          ? "0" + bookmarkContainer[i].sTime.getHours()
-          : bookmarkContainer[i].sTime.getHours()
-      }:${
-        bookmarkContainer[i].sTime.getMinutes() < 10
-          ? "0" + bookmarkContainer[i].sTime.getMinutes()
-          : bookmarkContainer[i].sTime.getMinutes()
-      }:${
-        bookmarkContainer[i].sTime.getSeconds() < 10
-          ? "0" + bookmarkContainer[i].sTime.getSeconds()
-          : bookmarkContainer[i].sTime.getSeconds()
-      }</td>
- */
