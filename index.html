@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!---------------------------Fonts used in this App------------------------------------------------------>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--------------------------------Style Files ------------------------------------------>
+    <link
+      rel="stylesheet"
+      href="./Assets/CSS/bootstrap.min.css"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="./Assets/CSS/all.min.css" type="text/css" />
+    <link rel="stylesheet" href="./Assets/CSS/style.css" type="text/css" />
+
+    <!------------------------------WebSite Title ------------------------------------------>
+
+    <title>Bookmarker App</title>
+
+    <!-------------------------------Browser logo------------------------------------------->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1ltIuCCzNK-zhA5dsUt_j-JtEwPZngFBC3cPcQ5XPAlOy81sW0J-ZaNp_ipb3tC6AiJ8&usqp=CAU"
+    />
+  </head>
+
+  <body>
+    <div class="layer h-100 d-flex flex-column">
+      <div class="container header__container mx-auto">
+        <h1 class="text-center">Bookmarker App</h1>
+        <div class="subtitle__line mb-4 mx-auto"></div>
+      </div>
+      <div
+        class="container justify-content-center shadow py-3 bookmark__container rounded"
+      >
+        <h2 class="header text-decoration-underline">
+          Bookmark your favorite sites
+        </h2>
+        <label for="sName" class="mt-2 mb-1">Site Name:</label>
+        <input
+          type="text"
+          placeholder="Bookmark Name..."
+          class="form-control"
+          id="sName"
+        />
+        <p class="mb-0 small wrong__red d-none">Name Must Match a Legal DNS Name </p>
+        <label for="sUrl" class="mt-3 mb-1">Site URL:</label>
+        <input
+          type="tel"
+          placeholder="Website URL..."
+          class="form-control"
+          id="sUrl"
+        />
+        <p class="text__wrong d-none small"  id='wrongURL'>Please Enter A Valid URL</p>
+        <button
+          class="btn btn-primary w-100 mt-3 mb-3 add__button"
+          id="addBookmark"
+          onclick="addItem()"
+        >Add Bookmark</button>
+        <button
+          class="btn btn-primary w-100 mt-3 mb-3 add__button d-none"
+          id="updateBookmark"
+          onclick="updateItem(this.value)"
+        >
+          Update Bookmark
+        </button>
+      </div>
+      <div
+        class="table-responsive d-block container table__container mt-3 py-3 rounded overflow-auto" id="listTable"
+      >
+        <table class="table h-100 py-5 text-center" >
+          <thead class="table-light">
+            <tr>
+              <th scope="col" class="nameCell">Name</th>
+              <th scope="col" class="urlCell">URL</th>
+              <th scope="col" class="">Visit</th>
+              <th scope="col" class="">Update</th>
+              <th scope="col" class="">Delete</th>
+              <th scope="col" class="">Time</th>
+            </tr>
+          </thead>
+          <tbody id="tBody">
+            <!-- <tr>
+              <td>Bookmark1</td>
+              <td>www.lohjuhj.com</td>
+              <td class="text-center"><button class="btn btn-outline-primary" onclick="visitURL()"><i class="fa-regular fa-eye"></i></button></td> 
+              <td class="text-center"><button class="btn btn-outline-warning" onclick="getUpdate(index)"><i class="fa-solid fa-edit"></i></button></td>
+              <td class="text-center"><button class="btn btn-outline-danger" onclick="deleteItem(index)"><i class="fa-solid fa-trash"></i></button></td>  
+              <td>Sat Feb 04 2032 15:2:01</td>  
+            </tr>  -->
+              
+
+          </tbody>
+        </table>
+      </div>
+      <footer class="container py-3"><p class="footer__desc">
+        Copyright Â© 2021 <a href="#" class="footer__link text-decoration-none">Bookmarker.</a> All
+        Rights Reserved.
+      </p></footer>>
+    </div>
+
+    <!----------------------------- sweetAlert2 script ------------------------------->
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!----------------------------- Bootstrap script ------------------------------->
+
+    <script src="./Assets/JS/bootstrap.bundle.min.js"></script>
+
+    <!----------------------------- My script ------------------------------->
+
+    <script src="./Assets/JS/index.js"></script>
+  </body>
+</html>

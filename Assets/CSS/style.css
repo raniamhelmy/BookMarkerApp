@@ -1,0 +1,220 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white__color: #fff;
+  --mainText__color: #282828;
+  --mainTitle__color: #aaa;
+  --secondText__color: #ec768e;
+  --secondBG__color: rgba(243, 192, 139, 0.7);
+  --black__color: #000;
+  --buttonD__color: red;
+  --buttonAdd__color: purple;
+  --buttonVisit__color: #008000;
+  --rate__color: gold;
+  --titleLine__color: rgba(222, 227, 228, 0.5);
+  --fontMontserrat: "Montserrat", sans-serif;
+  --fontNunito: "Nunito", sans-serif;
+
+  --number__color: #6c757d;
+  --secondButton__color: #6c6c6c;
+  --secondNav__color: #7b8084;
+  --placeholder__color: #b1b4b8;
+}
+
+body {
+  background-image: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.588000700280112) 0%,
+      rgba(255, 255, 255, 0.6707457983193278) 1%
+    ),
+    url("https://images.template.net/wp-content/uploads/2016/04/01081558/Design-Bookmark-Templates.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: var(--mainTitle__color);
+  font-family: var(--fontNunito);
+  min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.header__container {
+  margin-block: 1.2rem;
+}
+
+h1 {
+  font-family: var(--fontNunito);
+  font-weight: 1000;
+  font-size: 3.5rem;
+  color: var(--mainText__color);
+  margin-block-start: 2.8rem;
+  margin-block-end: 0.5rem;
+}
+
+.subtitle__line {
+  width: 10.5rem;
+  height: 3px;
+  background-color: var(--secondText__color);
+  transition: width 400ms linear, background 500ms ease-in;
+}
+
+.header__container:hover .subtitle__line {
+  width: 19rem;
+  background-color: #a85465;
+}
+
+.bookmark__container,
+.table__container {
+  background-color: var(--secondBG__color);
+}
+
+h2 {
+  font-family: var(--fontMontserrat);
+  font-weight: 800;
+  font-size: 1.67rem;
+  color: var(--secondText__color);
+}
+
+label {
+  font-weight: 900;
+  font-size: 0.9rem;
+  color: var(--mainText__color);
+}
+
+.form-control:focus {
+  color: var(--mainText__color);
+  border-color: var(--secondText__color);
+  box-shadow: 0 0 0 0.25rem rgba(236, 118, 142, 0.25);
+}
+
+::placeholder {
+  color: var(--placeholder__color);
+  font-family: var(--fontNunito);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.btn-primary.add__button {
+  background-color: var(--secondText__color);
+  border: 1px solid var(--secondText__color);
+  transition: all 300ms ease-in;
+}
+
+.btn-primary.add__button:hover {
+  background-color: #a85465;
+  border: 1px solid #a85465;
+}
+
+.table > :not(:last-child) > :last-child > *,
+.table > :not(caption) > * > * {
+  border-bottom: none;
+}
+
+.text__wrong {
+  color: red;
+  font: var(--fontMontserrat);
+  font-weight: 600;
+}
+
+.wrong__red{
+  color:red;
+}
+
+.form-control:focus {
+  color: var(--mainText__color);
+  border-color: var(--secondText__color);
+  box-shadow: 0 0 0 0.25rem rgba(236, 118, 142, 0.25);
+}
+
+.box.form-control{
+  border-color: red;
+  box-shadow: 0 0 0 0.25rem rgba(252, 0, 50, 0.308);
+}
+
+p.small {
+  font-size: 0.6875rem;
+  margin-left: 3px;
+  opacity: 0.75;
+}
+
+thead th {
+  font-weight: 800;
+}
+
+.table>:not(:last-child)>:last-child>*{
+  background-color: rgba(236, 118, 142, 0.392);
+}
+
+.nameCell {
+  width: 20;
+}
+
+.urlCell {
+  width: 35%;
+}
+
+.footer__link {
+  color: var(--secondText__color);
+  font-weight: 800;
+  font-size: 18px;
+  transition: color 300ms ease-in;
+}
+
+.footer__link:hover {
+  color: #a85465;
+}
+
+td {
+  font-family: var(--fontMontserrat);
+  font-weight: 400;
+}
+
+.footer__desc {
+  text-align: end;
+}
+
+.btn-check:focus + .btn-primary,
+.btn-primary:focus,
+.btn-check:focus + .btn,
+.btn:focus {
+  box-shadow: none;
+}
+
+.swal2-styled.swal2-confirm {
+  background-color: var(--secondText__color);
+}
+
+.swal2-styled.swal2-confirm:focus,
+.swal2-styled.swal2-default-outline:focus,
+.swal2-styled {
+  box-shadow: none;
+}
+
+.table>tbody>tr>td, 
+.table>tbody>tr>th, 
+.table>tfoot>tr>td, 
+.table>tfoot>tr>th, 
+.table>thead>tr>td, 
+.table>thead>tr>th {
+      vertical-align: middle;
+ }
+
+
+
+/*******************************************RWD Section*****************************************/
+
+@media screen and (max-width: 425.9808px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  .footer__desc {
+    text-align: center;
+  }
+}
